@@ -1,14 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3yfxv4mwpd0e"]
+[gd_scene load_steps=6 format=3 uid="uid://b3yfxv4mwpd0e"]
 
 [ext_resource type="Script" uid="uid://c063wp0muftp8" path="res://ASSET/SCRIPT/player-controler.gd" id="1_dptqk"]
 [ext_resource type="Texture2D" uid="uid://dsv6bjh4pwmxg" path="res://ASSET/CHARACTER/idle.animation copy.png" id="2_dptqk"]
+
+[sub_resource type="Animation" id="Animation_dptqk"]
+resource_name = "idle "
+length = 2.0
+step = 0.25
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a5fo4"]
+_data = {
+&"idle ": SubResource("Animation_dptqk")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6njfy"]
 radius = 27.0
 height = 250.0
 
 [node name="player" type="CharacterBody2D"]
-visible = false
 position = Vector2(0, -10)
 script = ExtResource("1_dptqk")
 speed = 20.0
@@ -23,6 +32,9 @@ position_smoothing_speed = 8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="animation"]
 root_node = NodePath("../../Camera2D")
+libraries = {
+&"": SubResource("AnimationLibrary_a5fo4")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="animation"]
 position = Vector2(12.249996, 17.000008)
