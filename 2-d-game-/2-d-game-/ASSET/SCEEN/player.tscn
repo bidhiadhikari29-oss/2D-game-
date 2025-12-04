@@ -20,7 +20,7 @@ height = 250.0
 [node name="player" type="CharacterBody2D"]
 position = Vector2(0, -10)
 script = ExtResource("1_dptqk")
-speed = 20.0
+speed = 800.0
 Jump_power = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
